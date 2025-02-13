@@ -1,6 +1,7 @@
 {
   "name": "dishdelights",
   "private": true,
+  "homepage": "https://JakubMalenovsky.github.io/dishdelights",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
