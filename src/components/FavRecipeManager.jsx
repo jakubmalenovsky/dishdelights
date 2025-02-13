@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, TextField, Button, Typography, Grid, Card, CardMedia, CardContent, IconButton, Box } from '@mui/material';
 import { Edit, Delete, FavoriteBorder, Star } from '@mui/icons-material';
+import heroImage from '../assets/FavImg.jpg'; // Update with the correct path to your image
 
 function FavRecipeManager() {
     const [recipes, setRecipes] = useState(() => {
@@ -73,24 +74,25 @@ function FavRecipeManager() {
                     >
                         <CardMedia
                             component="img"
-                            image="/mnt/data/image.png" // Update with correct path
+                            image={heroImage}
                             alt="Hero Image"
                             sx={{
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'cover',
-                                filter: 'brightness(60%)'
+                                filter: 'brightness(40%)'
                             }}
                         />
                         <Typography
-                            variant="h5"
+                            variant="h1"
                             sx={{
                                 position: 'absolute',
+
                                 top: '50%',
-                                left: '10%',
+                                left: '5%',
                                 transform: 'translateY(-50%)',
                                 color: 'white',
-                                fontWeight: 'bold'
+                                fontWeight: '400'
                             }}
                         >
                             Take a note of your favourite recipe

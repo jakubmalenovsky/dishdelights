@@ -1,6 +1,4 @@
-import { Container, Typography, Box, Button, Grid, Card, CardContent, CardMedia } from '@mui/material';
-import { Restaurant, Favorite, Share, LocationOn } from '@mui/icons-material';
-import recipeImage from '../assets/sushi.jpg';
+import { Container, Typography, Box, Button, CardMedia } from '@mui/material';
 import communityImage from '../assets/lasagna.jpg';
 
 export default function AboutView() {
@@ -9,7 +7,10 @@ export default function AboutView() {
             {/* Hero Section */}
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 5 }}>
                 <Box sx={{ flex: 1 }}>
-                    <Typography variant="h2" fontWeight="bold" gutterBottom>
+                    <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+                        About Us
+                    </Typography>
+                    <Typography variant="h1" fontWeight="400" gutterBottom>
                         Welcome to DishDelights
                     </Typography>
                     <Typography variant="h6" color="text.secondary">
@@ -19,21 +20,19 @@ export default function AboutView() {
                 <CardMedia component="img" image={communityImage} alt="Food Community" sx={{ width: '50%', borderRadius: '10px' }} />
             </Box>
 
-            {/* About the Company */}
             <Box sx={{ mb: 5 }}>
                 <Typography variant="h4" fontWeight="bold" gutterBottom>
                     About DishDelights
                 </Typography>
+                <Typography variant="body1" color="text.secondary"></Typography>
                 <Typography variant="body1" color="text.secondary">
                     DishDelights is a global platform for food enthusiasts to explore, share, and create delicious meals. We aim to provide a seamless experience with detailed recipes and user-friendly navigation.
                 </Typography>
                 <Typography variant="body1" fontWeight="bold" mt={2}>
                     Headquarters: 456 Culinary Avenue, Gourmet Town, 1010 Vienna, Austria
                 </Typography>
-                <LocationOn sx={{ fontSize: 30, color: 'primary.main', mt: 1 }} />
             </Box>
 
-            {/* Call to Action */}
             <Box sx={{ textAlign: 'center', mt: 6 }}>
                 <Typography variant="h4" fontWeight="bold" gutterBottom>
                     Join the DishDelights Community Today!

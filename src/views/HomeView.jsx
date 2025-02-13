@@ -57,6 +57,9 @@ const HomeView = () => {
               <Typography variant="h1" component="span" color="primary" fontWeight="bold">
                 love...
               </Typography>
+              <Typography variant="body1" >
+                 Discover the best recipes and culinary delights.
+              </Typography>
             </Typography>
 
             <Button
@@ -81,4 +84,3 @@ const HomeView = () => {
 };
 
 export default HomeView;
-
