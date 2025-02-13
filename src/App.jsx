@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
-import StagePage from "./views/StagePage";
-import DetailPage from "./views/DetailPage";
-import HomePage from "./views/HomePage";
+import HomeView from "./views/HomeView";
+import ContactView from "./views/ContactView";
+import RecipesView from "./views/RecipesView";
+import FavView from "./views/FavView";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +15,16 @@ const router = createBrowserRouter([
         element: <HomeView />,
       },
       {
-        path: "stagepage/:stageId",
-        element: <StagePage/>
+        path: "ContactView",
+        element: <ContactView />
       },
       {
-        path: "detailpage/:eventId",
-        element: <DetailPage />
+        path: "FavView",
+        element: <FavView />
+      },
+      {
+        path: "RecipesView",
+        element: <RecipesView />
       }
     ]
   }
