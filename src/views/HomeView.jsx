@@ -53,7 +53,7 @@ const HomeView = () => {
             }}
           >
             <Typography variant="h1" fontWeight="bold">
-              Food that you will{" "}
+              Food that you willl{" "}
               <Typography variant="h1" component="span" color="primary" fontWeight="bold">
                 love...
               </Typography>
