@@ -36,7 +36,7 @@ export default function ContactView() {
                     variant="h1"
                     sx={{
                         position: 'absolute',
-                        top: '80%',
+                        top: '50%',
                         left: '5%',
                         transform: 'translateY(-50%)',
                         color: 'white',

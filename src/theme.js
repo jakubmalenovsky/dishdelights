@@ -18,7 +18,13 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: '"Rubik", "Helvetica", "Arial", sans-serif',
-        h1: { fontSize: '3.5rem', fontWeight: 600 },
+        h1: { 
+            fontSize: '3.5rem', 
+            fontWeight: 600,
+            '@media (max-width:600px)': {
+                fontSize: '2.5rem', // Smaller font size for phones
+            },
+        },
         h2: { fontSize: '1.5rem', fontWeight: 600 },
         h3: { fontSize: '1.25rem', fontWeight: 600 },
         h4: { fontSize: '1.125rem', fontWeight: 600 },
