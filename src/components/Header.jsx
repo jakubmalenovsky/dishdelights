@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png"; // Ensure correct import if inside src/assets
+import logo from "../assets/logo.svg"; // Ensure correct import if inside src/assets
 import styles from './header.module.css';  // Correct import for CSS module
 import { Link } from "react-router-dom";
 
@@ -29,10 +29,11 @@ export default function Header() {
       {/* Navbar */}
       <nav className={`${styles.navbar} ${isNavOpen ? styles.active : ''}`}>
         <ul>
-            <li><Link to="" className="hover:underline">Home</Link></li>
-            <li><Link to="./recipesview" className="hover:underline">Recipes</Link></li>
-            <li><Link to="./contactview" className="hover:underline">Contacts</Link></li>
-            <li><Link to="./favview" className="hover:underline">Favourite</Link></li>
+            <li><Link to="" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Home</Link></li>
+            <li><Link to="./recipesview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Recipes</Link></li>
+            <li><Link to="./contactview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Contacts</Link></li>
+            <li><Link to="./favview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Favourite</Link></li>
+            <li><Link to="./aboutview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>About</Link></li>
         </ul>
       </nav>
     </header>

@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import theme from "./theme";
+import "@fontsource/rubik";
 import Layout from "./Layout";
 import HomeView from "./views/HomeView";
 import ContactView from "./views/ContactView";
 import RecipesView from "./views/RecipesView";
 import FavView from "./views/FavView";
 import DetailPage from "./views/DetailPage";
+import AbouView from "./views/AboutView";
+import './App.css'; // Importing App.css
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,12 @@ const router = createBrowserRouter([
       {
         path: "detailpage/:recipeId",
         element: <DetailPage />
-      }
+      },
+      {
+        path: "aboutview",
+        element: <AbouView />
+      },
+
     ]
   }
 ])
@@ -41,9 +47,7 @@ export default function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-      </ThemeProvider>
+    
     </>
   );
 

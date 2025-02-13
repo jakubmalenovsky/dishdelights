@@ -6,22 +6,22 @@
     font-weight: 600;
     display: flex;
     align-items: center;
+    margin: 10px auto;
     justify-content: space-between;
     padding: 16px 24px; /* Reduced horizontal padding for better responsiveness */
-    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* Gradient background */
-    border-radius: 0 0 12px 12px;
-    max-width: 100%; /* Ensure header doesn't exceed viewport width */
+    background: #ffffff; /* Gradient background */
+    border-radius: 20px;
+    max-width: 95%; /* Ensure header doesn't exceed viewport width */
     width: 100%; /* Full width */
     box-sizing: border-box; /* Include padding in width calculation */
-    margin: 0 auto; /* Center the header */
   }
   
   /* Logo Styling */
   .logo {
-    height: 48px;
+    height: 40px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    margin-left: 120px;
+    margin-left: 80px;
   }
   
   .logo:hover {
