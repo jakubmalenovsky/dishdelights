@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Container, TextField, Button, Typography, List, ListItem, IconButton, Card, CardContent, CardMedia } from '@mui/material';
-import { Edit, Delete } from '@mui/icons-material';
+import { Container, TextField, Button, Typography, Grid, Card, CardMedia, CardContent, IconButton, Box } from '@mui/material';
+import { Edit, Delete, FavoriteBorder, Star } from '@mui/icons-material';
 
 function FavRecipeManager() {
     const [recipes, setRecipes] = useState(() => {
         const savedRecipes = localStorage.getItem('recipes');
         return savedRecipes ? JSON.parse(savedRecipes) : [];
     });
-    const [currentRecipe, setCurrentRecipe] = useState({ title: '', content: '', image: null });
+    const [currentRecipe, setCurrentRecipe] = useState({ title: '', content: '', image: null, rating: 4.5 });
     const [isEditing, setIsEditing] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
 
@@ -43,7 +43,7 @@ function FavRecipeManager() {
         } else {
             setRecipes([...recipes, currentRecipe]);
         }
-        setCurrentRecipe({ title: '', content: '', image: null });
+        setCurrentRecipe({ title: '', content: '', image: null, rating: 4.5 });
     }
 
     function handleDelete(index) {
@@ -58,90 +58,132 @@ function FavRecipeManager() {
     }
 
     return (
-        <Container style={{ padding: '20px' }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-                Add you favorite recipe
-            </Typography>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    label="Title"
-                    name="title"
-                    value={currentRecipe.title}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                    margin="normal"
-                />
-                <TextField
-                    label="Recipe Instructions"
-                    name="content"
-                    value={currentRecipe.content}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                    multiline
-                    rows={4}
-                    margin="normal"
-                />
-                <Button
-                    variant="contained"
-                    component="label"
-                    fullWidth
-                    margin="normal"
-                >
-                    Upload Image
-                    <input
-                        type="file"
-                        accept="image/*"
-                        hidden
-                        onChange={handleImageChange}
-                    />
-                </Button>
-                {currentRecipe.image && (
-                    <CardMedia
-                        component="img"
-                        image={currentRecipe.image}
-                        alt="Recipe"
-                        style={{ width: '100px', marginTop: '10px' }}
-                    />
-                )}
-                <Button type="submit" variant="contained" color="primary" fullWidth>
-                    {isEditing ? 'Update' : 'Create'} Recipe
-                </Button>
-            </form>
-            <Typography variant="h5" component="h2" gutterBottom>
+        <Container maxWidth="lg" sx={{ padding: '20px' }}>
+            <Grid container spacing={4} alignItems="center">
+                {/* Hero Section */}
+                <Grid item xs={12} md={6}>
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            width: '100%',
+                            height: { xs: '300px', md: '400px' },
+                            borderRadius: '15px',
+                            overflow: 'hidden'
+                        }}
+                    >
+                        <CardMedia
+                            component="img"
+                            image="/mnt/data/image.png" // Update with correct path
+                            alt="Hero Image"
+                            sx={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                filter: 'brightness(60%)'
+                            }}
+                        />
+                        <Typography
+                            variant="h5"
+                            sx={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: '10%',
+                                transform: 'translateY(-50%)',
+                                color: 'white',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            Take a note of your favourite recipe
+                        </Typography>
+                    </Box>
+                </Grid>
+
+                {/* Form Section */}
+                <Grid item xs={12} md={6}>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Add Your Favorite Recipe
+                    </Typography>
+                    <form onSubmit={handleSubmit}>
+                        <TextField
+                            label="Title"
+                            name="title"
+                            value={currentRecipe.title}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            label="Recipe Instructions"
+                            name="content"
+                            value={currentRecipe.content}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            multiline
+                            rows={4}
+                            margin="normal"
+                        />
+                        <Button variant="contained" component="label" fullWidth>
+                            Upload Image
+                            <input type="file" accept="image/*" hidden onChange={handleImageChange} />
+                        </Button>
+                        {currentRecipe.image && (
+                            <CardMedia component="img" image={currentRecipe.image} alt="Recipe" sx={{ width: '100px', marginTop: '10px' }} />
+                        )}
+                        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginTop: '10px' }}>
+                            {isEditing ? 'Update' : 'Create'} Recipe
+                        </Button>
+                    </form>
+                </Grid>
+            </Grid>
+
+            {/* Favorite Recipes Section */}
+            <Typography variant="h5" component="h2" gutterBottom sx={{ marginTop: '40px' }}>
                 Favorite Recipes
             </Typography>
-            <List>
+            <Grid container spacing={2}>
                 {recipes.map((recipe, index) => (
-                    <ListItem key={index} alignItems="flex-start">
-                        <Card style={{ width: '100%' }}>
-                            <CardContent>
-                                <Typography variant="h6" component="h3">
-                                    {recipe.title}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {recipe.content}
-                                </Typography>
-                                {recipe.image && (
-                                    <CardMedia
-                                        component="img"
-                                        image={recipe.image}
-                                        alt="Recipe"
-                                        style={{ width: '100px', marginTop: '10px' }}
-                                    />
-                                )}
-                                <IconButton onClick={() => handleEdit(index)}>
-                                    <Edit />
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Card sx={{
+                            borderRadius: '15px',
+                            boxShadow: 'none',
+                            position: 'relative',
+                            cursor: 'pointer',
+                            transition: 'transform 0.2s ease-in-out',
+                            '&:hover': { transform: 'scale(1.03)' }
+                        }}>
+                            {recipe.image && (
+                                <CardMedia
+                                    component="img"
+                                    image={recipe.image}
+                                    alt={recipe.title}
+                                    sx={{
+                                        width: '100%',
+                                        height: '200px',
+                                        objectFit: 'cover',
+                                        borderRadius: '15px 15px 0 0'
+                                    }}
+                                />
+                            )}
+                            <CardContent sx={{ position: 'relative', padding: 2 }}>
+                                <Typography variant="h6" color="text.primary">{recipe.title}</Typography>
+                                <Typography variant="body2" color="text.secondary">{recipe.content}</Typography>
+                                <Box display="flex" alignItems="center" mt={1}>
+                                    <Star sx={{ color: '#FFB400', fontSize: '18px' }} />
+                                    <Typography variant="body2" sx={{ ml: 0.5 }}>{recipe.rating}</Typography>
+                                </Box>
+                                <IconButton onClick={() => handleEdit(index)} sx={{ position: 'absolute', top: 10, right: 40 }}>
+                                    <Edit sx={{ color: '#1976D2' }} />
                                 </IconButton>
-                                <IconButton onClick={() => handleDelete(index)}>
-                                    <Delete />
+                                <IconButton onClick={() => handleDelete(index)} sx={{ position: 'absolute', top: 10, right: 10 }}>
+                                    <Delete sx={{ color: '#D32F2F' }} />
                                 </IconButton>
                             </CardContent>
                         </Card>
-                    </ListItem>
+                    </Grid>
                 ))}
-            </List>
+            </Grid>
         </Container>
     );
 }

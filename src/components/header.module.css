@@ -1,153 +1,141 @@
-/* Header Styling */
-
-
 .header {
-    font-family: 'Neue Montreal', sans-serif;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    margin: 10px auto;
-    justify-content: space-between;
-    padding: 16px 24px; /* Reduced horizontal padding for better responsiveness */
-    background: #ffffff; /* Gradient background */
-    border-radius: 20px;
-    max-width: 95%; /* Ensure header doesn't exceed viewport width */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 95%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  margin-left: 80px;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.navbar {
+  display: flex;
+  gap: 40px;
+  font-size: 18px;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: 120px;
+}
+
+.navbar ul {
+  display: flex;
+  font-size: 18px;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .link {
+  text-decoration: none;
+  color: rgb(11, 11, 11);
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .link:hover {
+  color: #004D43;
+}
+
+.burgerMenu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burgerMenu div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(11, 11, 11);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 16px;
+    position: relative;
   }
-  
-  /* Logo Styling */
+
   .logo {
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    margin-left: 80px;
+    margin-left: 16px;
   }
-  
-  .logo:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Navbar Styling */
+
   .navbar {
-    display: flex;
-    gap: 40px; /* Reduced gap for better spacing */
-    font-size: 18px;
-    list-style-type: none;
-    margin-left: auto; /* Pushes navbar to the right naturally */
-    margin-right: 120px;
-  
-  }
-  
-  .navbar ul {
-    display: flex;
-    font-size: 18px;
-    gap: 40px; /* Reduced gap for better spacing */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar .link {
-    text-decoration: none;
-    color: rgb(11, 11, 11);
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .navbar .link:hover {
-    color: #004D43;
-  }
-  /* Burger Menu Styling */
-  .burgerMenu {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+    gap: 18px;
+    margin-top: -15px;
+    margin-left: 0;
+    padding-top: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
+    height: 48vh;
+    overflow-y: auto;
   }
-  
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 8px;
+    margin-right: none;
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar .link {
+    display: block;
+    padding: 8px 0;
+    font-size: 20px;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+
   .burgerMenu div {
-    width: 25px;
-    height: 3px;
-    background-color: rgb(11, 11, 11);
-    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
   }
-  
-  /* Responsive Fix */
-  @media (max-width: 768px) {
-    .header {
-      padding: 16px 16px; /* Further reduce padding for smaller screens */
-      position: relative; /* Ensure header is positioned relative for absolute child elements */
-    }
-  
-    .logo{
-      margin-left: 16px;
-    }
-  
-  
-    .navbar {
-      display: none; /* Hide navbar by default on small screens */
-      flex-direction: column;
-      gap: 18px; /* Reduce gap between items for closer spacing */
-      margin-left: 0; /* Reset margin on small screens */
-      padding-top: 10px;
-      width: 100%; /* Full width for mobile */
-      position: absolute; /* Position the navbar absolutely */
-      top: 100%; /* Position it below the header */
-      left: 0;
-      background: #D3CCE3; /* Match the header background */
-      background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3); /* Gradient background */
-      background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* Gradient background */
-      border-radius: 0 0 12px 12px; /* Rounded corners at the bottom */
-      z-index: 1000; /* Ensure it appears above other content */
-      height: 48vh; /* Auto height to fit content */
-      overflow-y: auto; /* Add scroll if content overflows */
-      border-radius: 10px;
-    }
-  
-    .navbar.active {
-      display: flex; /* Show navbar when active */
-    }
-  
-    .navbar ul {
-      flex-direction: column; /* Make the list items vertical */
-      align-items: center; /* Center the items horizontally */
-      padding: 10px; /* Add some padding */
-      gap: 8px; /* Reduce gap between list items */
-      margin-right: none;
-    }
-  
-    .navbar li {
-      width: 100%; /* Make each list item full width */
-      text-align: center; /* Center the text */
-    }
-  
-    .navbar .link {
-      display: block; /* Make links block-level for full width */
-      padding: 8px 0; /* Reduce padding for closer spacing */
-      font-size: 20px; /* Slightly reduce font size for better fit */
-    }
-  
-    .burgerMenu {
-      display: flex; /* Show burger menu on small screens */
-    }
-  
-    .burgerMenu div {
-      border-radius: 5px; /* Rounded corners for burger menu lines */
-    }
-  
-    /* Burger menu animation */
-    .burgerMenu.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      border-radius: 5px;
-    }
-  
-    .burgerMenu.active div:nth-child(2) {
-      opacity: 0;
-      border-radius: 5px;
-    }
-  
-    .burgerMenu.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(6.5px, -6.5px);
-      border-radius: 5px;
-    }
+
+  .burgerMenu.active div:nth-child(1) {
+    border-radius: 5px;
   }
+
+  .burgerMenu.active div:nth-child(2) {
+    transform: translateX(2px) scaleX(0.8);
+    border-radius: 5px;
+  }
+
+  .burgerMenu.active div:nth-child(3) {
+    transform: translateX(5px) scaleX(0.5);
+    border-radius: 5px;
+  }
+}
