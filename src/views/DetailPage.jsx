@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { Box, Typography, Card, CardMedia, Container, Grid, Paper } from "@mui/material";
-import theme from "../theme";
 
 import salmon from "../assets/salmon.jpg";
 import chicken from "../assets/chicken.jpg";
@@ -62,7 +61,7 @@ export default function DetailPage() {
             </Grid>
 
             {/* Picture Gallery */}
-            <Typography variant="h3" sx={{ mt: 4 }}>Pictures</Typography>
+             {/* <Typography variant="h3" sx={{ mt: 4 }}>Pictures</Typography>
             <Grid container spacing={3}>
                 {[1, 2, 3].map((_, index) => (
                     <Grid item xs={4} key={index}>
@@ -71,7 +70,7 @@ export default function DetailPage() {
                         </Card>
                     </Grid>
                 ))}
-            </Grid>
+            </Grid>*/}
         </Container>
     );
 }
