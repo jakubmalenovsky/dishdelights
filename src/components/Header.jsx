@@ -32,7 +32,7 @@ export default function Header() {
             <li><Link to="" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Home</Link></li>
             <li><Link to="./recipesview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Recipes</Link></li>
             <li><Link to="./contactview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Contacts</Link></li>
-            <li><Link to="./favview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Favourite</Link></li>
+            <li><Link to="./favview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>Favorites</Link></li>
             <li><Link to="./aboutview" className="hover:underline" style={{ color: 'black', textDecoration: 'none' }}>About</Link></li>
         </ul>
       </nav>

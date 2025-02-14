@@ -8,7 +8,7 @@ function FavRecipeManager() {
         const savedRecipes = localStorage.getItem('recipes');
         return savedRecipes ? JSON.parse(savedRecipes) : [];
     });
-    const [currentRecipe, setCurrentRecipe] = useState({ title: '', content: '', image: null, rating: 4.5 });
+    const [currentRecipe, setCurrentRecipe] = useState({ title: '', content: '', image: null });
     const [isEditing, setIsEditing] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
 
@@ -44,7 +44,7 @@ function FavRecipeManager() {
         } else {
             setRecipes([...recipes, currentRecipe]);
         }
-        setCurrentRecipe({ title: '', content: '', image: null, rating: 4.5 });
+        setCurrentRecipe({ title: '', content: '', image: null });
     }
 
     function handleDelete(index) {
@@ -171,10 +171,7 @@ function FavRecipeManager() {
                             <CardContent sx={{ position: 'relative', padding: 2 }}>
                                 <Typography variant="h6" color="text.primary">{recipe.title}</Typography>
                                 <Typography variant="body2" color="text.secondary">{recipe.content}</Typography>
-                                <Box display="flex" alignItems="center" mt={1}>
-                                    <Star sx={{ color: '#FFB400', fontSize: '18px' }} />
-                                    <Typography variant="body2" sx={{ ml: 0.5 }}>{recipe.rating}</Typography>
-                                </Box>
+                                
                                 <IconButton onClick={() => handleEdit(index)} sx={{ position: 'absolute', top: 10, right: 40 }}>
                                     <Edit sx={{ color: '#1976D2' }} />
                                 </IconButton>
