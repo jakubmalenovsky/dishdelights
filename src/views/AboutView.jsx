@@ -5,7 +5,8 @@ export default function AboutView() {
     return (
         <Container maxWidth="lg" sx={{ py: 5, textAlign: 'left' }}>
             {/* Hero Section */}
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, flexDirection: { xs: 'column', md: 'row' }, gap: 3 }}>
+                <CardMedia component="img" image={communityImage} alt="Food Community" sx={{ width: { xs: '100%', md: '50%' }, borderRadius: '10px', mb: { xs: 3, md: 0 } }} />
                 <Box sx={{ flex: 1 }}>
                     <Typography variant="subtitle1" color="text.secondary" gutterBottom>
                         About Us
@@ -17,7 +18,6 @@ export default function AboutView() {
                         A vibrant community dedicated to uniting food lovers worldwide with diverse and delicious recipes.
                     </Typography>
                 </Box>
-                <CardMedia component="img" image={communityImage} alt="Food Community" sx={{ width: '50%', borderRadius: '10px' }} />
             </Box>
 
             <Box sx={{ mb: 5 }}>
